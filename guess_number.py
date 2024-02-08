@@ -7,7 +7,15 @@ print(f"You have {num_guesses} guesses to find it!")
 guess = input("What number am I thinking of? (q to quit) ")
 num_guesses -= 1
 while guess != str(number) and guess != 'q' and num_guesses != 0:
-   print(f"Sorry! Wrong number. Try again. You have {num_guesses} guess(es) left.")
+   try:
+      guess = int(guess)
+      if guess > number:
+         print(f"Too high. Try again! You have {num_guesses} guess(es) left.")
+      else:
+         print(f"Too low. Try again! You have {num_guesses} guess(es) left.")
+   except:
+      print(f"Guess must be a number! You deserve to lose a guess! You have {num_guesses} guess(es) left.")
+
    guess = input("What number am I thinking of? (q to quit) ")
    num_guesses -= 1
 
